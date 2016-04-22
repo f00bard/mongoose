@@ -4396,7 +4396,6 @@ int mg_parse_http(const char *s, int n, struct http_message *hm, int is_req) {
     if ((qs = (char *) memchr(hm->uri.p, '?', hm->uri.len)) != NULL) {
       hm->query_string.p = qs + 1;
       hm->query_string.len = &hm->uri.p[hm->uri.len] - (qs + 1);
-      hm->uri.len = qs - hm->uri.p;
     }
   } else {
     s = mg_skip(s, end, " ", &hm->proto);
